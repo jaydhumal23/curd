@@ -1,0 +1,25 @@
+{
+  "name": "pj4",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "css":"npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --watch",
+    "app": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "dotenv": "^17.0.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.1",
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
