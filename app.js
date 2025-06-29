@@ -27,6 +27,7 @@ app.get("/read", async (req, res) => {
         console.log("Buddy error is here qt " + err)
     }
 })
+
 app.post("/create", async (req, res) => {
     try {
         await Model.create({
@@ -41,6 +42,27 @@ app.post("/create", async (req, res) => {
     }
 
 })
+app.get("/edit/:id", async (req, res) => {
+    try {
+        const user = await Model.findOne({ _id: req.params.id });
+        res.render("edit", { user })
+    }
+    catch (err) {
+        console.log("laga error edit get pe" + err)
+    }
+})
+app.post("/update/:id", async (req, res) => {
+    const { name, email, imgurl } = req.body;
+    try {
+        await Model.findOneAndUpdate({ _id: req.params.id }, { name, email, imgurl }, { new: true });
+        res.redirect("/read");
+    }
+    catch (err) {
+        console.log("nahi hua post update buddy " + err);
+    }
+})
+
+
 app.get("/delete/:id", async (req, res) => {
     try {
         await Model.findOneAndDelete({ _id: req.params.id });

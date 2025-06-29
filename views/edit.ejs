@@ -3,18 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CURD</title>
+    <title>Update <%= user.name %></title>
     <link rel="stylesheet" href="/css/output.css" />
   </head>
   <body>
     <div class="bg-zinc-950 w-screen min-h-screen box-border pt-8">
-      <a href="/Read" class="text-blue-500 inline pl-[50px]">View all Users</a>
-      <form action="/create" method="post" class="px-[100px] pt-8">
+      <a href="/Read" class="text-blue-500 inline pl-[50px]"
+        >Back to View all Users</a
+      >
+      <form
+        action="/update/<%= user._id %>"
+        method="post"
+        class="px-[100px] pt-8"
+      >
         <label for="name" class="text-md text-gray-500 ml-1">Name:</label>
         <input
           type="text"
           placeholder="Name of the User : Bro Code"
           name="name"
+          value="<%= user.name %>"
           class="outline-none bg-zinc-600 text-white block w-100 mb-7 px-3 py-1 rounded-[5px] max-sm:w-50"
         />
         <label for="email" class="text-md text-gray-500 ml-1">Email : </label>
@@ -22,6 +29,7 @@
           type="email"
           placeholder="example : you@email.com"
           name="email"
+          value="<%= user.email  %>"
           class="outline-none bg-zinc-600 text-white block w-100 px-3 py-1 rounded-[5px] mb-7 max-sm:w-50"
         />
         <label for="imgurl" class="text-md text-gray-500 ml-1">imgurl : </label>
@@ -29,13 +37,14 @@
           type="text"
           placeholder="your img link "
           name="imgurl"
+          value="<%= user.imgurl  %>"
           class="outline-none bg-zinc-600 text-white block w-100 px-3 py-1 rounded-[5px] max-sm:w-50"
         />
         <button
           type="submit"
-          class="px-4 py-1 text-xl bg-blue-700 text-white rounded-md mt-8 cursor-pointer"
+          class="px-4 py-1 text-xl bg-amber-500 text-white rounded-md mt-8 cursor-pointer"
         >
-          Create User
+          Update User
         </button>
       </form>
     </div>
