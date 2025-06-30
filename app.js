@@ -3,14 +3,19 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const app = express();
+const path = require("path")
 const PORT = process.env.PORT;
 dotenv.config();
 
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.set("views", path.join(__dirname, "views"));
 
+app.use(express.static(path.join(__dirname, "public")));
+app.get("/", (req, res) => {
+    res.redirect("/home")
+})
 app.get("/home", (req, res) => {
     res.render("index");
 
@@ -72,6 +77,8 @@ app.get("/delete/:id", async (req, res) => {
         console.log("err laga delete pe buddy" + err);
     }
 })
-app.listen(PORT, () => {
-    console.log("Your server is live at port : " + PORT);
-});
+// app.listen(PORT, () => {
+//     console.log("Your server is live at port : " + PORT);
+// });
+
+module.exports = app;
