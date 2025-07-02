@@ -1,12 +1,14 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
-mongoose.connect(process.env.MONGO_URL).then(() => {
+try {
+    mongoose.connect(process.env.MONGO_URL)
     console.log("Mongoose connected")
-}).catch((err) => {
+}
+catch (err) {
     console.log("Bhai nai hua connect bete")
+}
 
-})
 const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, unique: true, required: true },
