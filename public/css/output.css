@@ -249,9 +249,6 @@
   .w-screen {
     width: 100vw;
   }
-  .min-w-\[100\%\] {
-    min-width: 100%;
-  }
   .cursor-pointer {
     cursor: pointer;
   }
@@ -295,9 +292,6 @@
   }
   .bg-gray-950 {
     background-color: var(--color-gray-950);
-  }
-  .bg-white {
-    background-color: var(--color-white);
   }
   .bg-zinc-600 {
     background-color: var(--color-zinc-600);
